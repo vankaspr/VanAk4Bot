@@ -1,16 +1,24 @@
 import telebot
 
-from telebot import (types)
+from telebot import types
 
 bot = telebot.TeleBot("7407865143:AAEETcTvdi5voEWXXieyqMg_r5H9owJMg6A")
 
 
 @bot.message_handler(commands=["start"])
 def start(message):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    markup1 = types.ReplyKeyboardMarkup(resize_keyboard=True)
     btn1 = types.KeyboardButton("От всего сердца, КосмоПривет!🧑‍🚀🤟")
-    markup.add(btn1)
-    bot.send_message(message.from_user.id, "🧑‍🚀🤟 КосмоПривет в ответ! Я - VanAk4, робот-помощник с вагоном приколов на любой вкус и цвет! И, безусловно-точно, правая рука нашего Капитана Акыревича.", reply_markup=markup)
+    markup1.add(btn1)
+    bot.send_message(message.from_user.id, "🧑‍🚀🤟 КосмоПривет в ответ! Я - VanAk4, робот-помощник с вагоном приколов на любой вкус и цвет! И, безусловно-точно, правая рука нашего Капитана Акыревича.", reply_markup=markup1)
+
+
+@bot.message_handler(commands=["stop"])
+def stop(message):
+    markup2 = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    btn1 = types.KeyboardButton("Пора возвращаться!🫡 ")
+    markup2.add(btn1)
+    bot.send_message(message.from_user.id, "Ещё свидимся! Доброго пути, КосмоМатрос!", reply_markup=markup2)
 
 
 @bot.message_handler(content_types=["text"])
@@ -34,3 +42,6 @@ def get_text_messages(message):
 
 
 bot.polling(none_stop=True, interval=0)  # строка обязательная, чтобы бот не отключался и работал нон-стоп
+
+# завершить сеанс (циклом)
+# добавить функционала
