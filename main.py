@@ -1,9 +1,16 @@
+import os
+import random
+
 import telebot
 from telebot import types
+
 from bot_token import BOT_TOKEN
 
-
 bot = telebot.TeleBot(BOT_TOKEN)
+
+img_folder = 'D:/web/personal/VanAk4Bot/pythonProject/img'
+files = [os.path.join(img_folder, f) for f in os.listdir(img_folder)
+         if f.endswith('.jpg')]
 
 
 @bot.message_handler(commands=["start"])
@@ -43,7 +50,8 @@ def response(function_call):
             markup1 = types.InlineKeyboardMarkup()
             btn1 = types.InlineKeyboardButton(text="Открыть!")
             markup1.add(btn1)
-            # bot.send_photo()
+            photo = open(random.choice(files), 'rb')
+            bot.send_photo(function_call.message.chat.id, photo)
             bot.answer_callback_query(function_call.id)
 
 

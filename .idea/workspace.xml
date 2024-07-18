@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6f80289-cc43-4054-a08c-b77a3f97fdbb" name="Changes" comment="fix: stop+">
-      <change afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prosvet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject.iml" afterDir="false" />
+    <list default="true" id="c6f80289-cc43-4054-a08c-b77a3f97fdbb" name="Changes" comment="fix: token">
+      <change afterPath="$PROJECT_DIR$/random_mem.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vanak4bot.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +29,9 @@
     &quot;accountId&quot;: &quot;0182b8f7-5013-4903-a7e1-4a13f97a6c92&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/main.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -149,7 +146,31 @@
       <option name="project" value="LOCAL" />
       <updated>1720721387219</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix: +inlinebutton +structure +bd(no work)">
+      <option name="closed" value="true" />
+      <created>1721314316272</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1721314316272</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix: readme">
+      <option name="closed" value="true" />
+      <created>1721314452295</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1721314452295</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix: token">
+      <option name="closed" value="true" />
+      <created>1721314569388</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1721314569388</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -171,6 +192,9 @@
     <MESSAGE value="fix: README.md" />
     <MESSAGE value="rename test_vanak4bot.py" />
     <MESSAGE value="fix: stop+" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: stop+" />
+    <MESSAGE value="fix: +inlinebutton +structure +bd(no work)" />
+    <MESSAGE value="fix: readme" />
+    <MESSAGE value="fix: token" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: token" />
   </component>
 </project>
