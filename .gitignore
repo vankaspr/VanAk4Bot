@@ -1,5 +1,5 @@
 .idea
 venv
 report.db
-BOT_TOKEN
+bot_token.py
 
