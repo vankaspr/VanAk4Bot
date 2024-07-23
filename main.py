@@ -1,16 +1,25 @@
-import os
-import random
-
 import telebot
-from telebot import types
 
+from telebot import types
 from bot_token import BOT_TOKEN
 
+import random
+import os
+
+from text import second_mess, bot_instruct
+
 bot = telebot.TeleBot(BOT_TOKEN)
+
 
 img_folder = 'D:/web/personal/VanAk4Bot/pythonProject/img'
 files = [os.path.join(img_folder, f) for f in os.listdir(img_folder)
          if f.endswith('.jpg')]
+
+# os.path.join(img_folder, f) полный путь к каждому файлу в директории
+# os.listdir(img_folder) список всех файлов в директории
+# for f in os.listdir(img_folder)
+#          if f.endswith('.jpg') - цикл по каждому элементу в списке при условии, что этот файл .jpg
+# files = [...] список
 
 
 @bot.message_handler(commands=["start"])
@@ -19,77 +28,91 @@ def start(message):
                   "\nЯ - VanAk4, робот-помощник с вагоном приколов на любой вкус и цвет! "
                   "И, безусловно-точно, правая рука нашего Капитана Акыревича.")
     markup = types.InlineKeyboardMarkup()
-    btn1 = types.InlineKeyboardButton(text="Открыть журнал исследований🕵️", callback_data="mag_yes")
-    btn2 = types.InlineKeyboardButton(text="МемСинтМашин", callback_data="mem_sm")
-    markup.add(btn1, btn2)
-    bot.send_message(message.chat.id, first_mess, parse_mode="html", reply_markup=markup)
+    bt1 = types.InlineKeyboardButton(text="Журнал Исследований", callback_data="bt1")
+    bt2 = types.InlineKeyboardButton(text="МемСинтМашин", callback_data="bt2")
+    bt3 = types.InlineKeyboardButton(text="БотИнструкт", callback_data="bt3")
+    bt4 = types.InlineKeyboardButton(text="Квизовик", callback_data="bt4")
+    markup.add(bt1, bt2, bt3, bt4)
+    bot.send_message(message.chat.id, first_mess, reply_markup=markup, parse_mode="html")
 
 
-@bot.callback_query_handler(func=lambda call:True)
-def response(function_call):
-    if function_call.message:
-        if function_call.data == "mag_yes":
-            second_mess = ("Журнал исследований открыт! "
-                           "\nЗдесь вы можете найти для себя различные ресурсы для просмотра бесплатного контента по СКЗ."
-                           "\n📑ГиперФикс-2022 - Пристанище Капитана Акыревича, где он проводил своё собственное расследования СКЗ-звёзд и баловался форматом мп4 в личное пользование."
-                           "\n📑МежГалоЕды - личный сборник Капитана Акыревича на фикбук, который хранит в себе небольшое количество приятного чтива для любителей крепкой мужской дружбы."
-                           "\n📑Архив On-Расслабон - ютуб-канал легендарного человека, который собрал воедино все транляции СКЗ,"
-                           "включая те, что хранились на VLive, дак ещё и перевёл их на английский язык. "
-                           "\n📑ККП - Официальный канал СКЗ, а именно страница на их плейлисты, для более глубокого погружения в Стейвиль.")
-            markup = types.InlineKeyboardMarkup()
-            btn1 = types.InlineKeyboardButton(text="ГиперФикс-2022", url="https://vk.com/icecreeeaaammm")
-            btn2 = types.InlineKeyboardButton(text="МежГалоЕды", url="https://ficbook.net/collections/26150258")
-            btn3 = types.InlineKeyboardButton(text="Архив ON-Расслабон", url="https://www.youtube.com/@stayk23")
-            btn4 = types.InlineKeyboardButton(text="ККП", url="https://www.youtube.com/@StrayKids/playlists")
-            markup.add(btn1, btn2, btn3, btn4)
-            bot.send_message(function_call.message.chat.id, second_mess, reply_markup=markup)
-            bot.answer_callback_query(function_call.id)
-
-        elif function_call.data == "mem_sm":
-            third_mess = "На станции сегодня скучновато... \nО, вам пришло сообщение от Капитана! \nОткрываю?"
-            markup1 = types.InlineKeyboardMarkup()
-            btn1 = types.InlineKeyboardButton(text="Открыть!")
-            markup1.add(btn1)
-            photo = open(random.choice(files), 'rb')
-            bot.send_photo(function_call.message.chat.id, photo)
-            bot.answer_callback_query(function_call.id)
-
-
-@bot.message_handler(commands=["stop"])
-def stop(message):
-    markup2 = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    btn1 = types.KeyboardButton("Ещё свидимся!🫡 ")
-    markup2.add(btn1)
-    bot.send_message(message.from_user.id, "...", reply_markup=markup2)
+@bot.message_handler(commands=["back"])
+def back(message):
+    back_mess = "Вернуться на главную панель?"
+    markup = types.InlineKeyboardMarkup()
+    back_btn = types.InlineKeyboardButton(text="Yappy!", callback_data="back")
+    markup.add(back_btn)
+    bot.send_message(message.chat.id, back_mess, parse_mode="html", reply_markup=markup)
 
 
 @bot.message_handler(commands=["help"])
 def help(message):
-    markup3 = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    bot.send_message(message.from_user.id, "...", reply_markup=markup3)
+    help_mess = "Нужна помощь в управлении?"
+    markup = types.InlineKeyboardMarkup()
+    help_btn = types.InlineKeyboardButton(text="Yappy!", callback_data="help")
+    markup.add(help_btn)
+    bot.send_message(message.chat.id, help_mess, parse_mode="html", reply_markup=markup)
+
+
+@bot.callback_query_handler(func=lambda call:True)
+def response(call):
+    if call.message:
+        if call.data == "bt1":
+            keyboard = types.InlineKeyboardMarkup()
+            btn1 = types.InlineKeyboardButton(text="KKП", url="https://www.youtube.com/@StrayKids/playlists")
+            btn2 = types.InlineKeyboardButton(text="Архив ON-Расслабон", url="https://www.youtube.com/@stayk23")
+            btn3 = types.InlineKeyboardButton(text="МежГалоЕды", url="https://ficbook.net/collections/26150258")
+            btn4 = types.InlineKeyboardButton(text="ГиперФикс-2022", url="https://vk.com/icecreeeaaammm")
+            keyboard.add(btn1, btn2, btn3, btn4)
+            bot.send_message(call.message.chat.id, second_mess, reply_markup=keyboard)
+            bot.answer_callback_query(call.id)
+
+        elif call.data == "bt2":
+            third_mess = ("На станции сегодня скучновато... \nО, кажется наш Капитан собирается развеселить вас! "
+                          "\nПримите свою порцию КосмоХохмы!📩")
+            photo = open(random.choice(files), 'rb')
+            # rb read binary - для чтения бинарных файлов, например, изображений
+            bot.send_message(call.message.chat.id, third_mess)
+            bot.send_photo(call.message.chat.id, photo)
+            bot.answer_callback_query(call.id)
+
+        elif call.data == "bt3":
+            for_mess = ("Это руководство по эксплуатации бота, чтобы и вам удобно, и мне полезно!"
+                        "\n"
+                        "\nVanAk4Bot - простой в использовании бот со своими приколами, созданный по воле случая "
+                        "и с доброй душой. Этот бот некоммерческого издания и не несёт никакой услады для капиталистов,"
+                        "это лишь детище одного Капитана по фамилии Акыре, который уж слишком любит бойзбэнд бродячих "
+                        "детей и систематизировать все полученные им ссылки и информацию в одну понятную кучу."
+                        "\n\nОсторожно, много текста! ")
+            keyboard = types.InlineKeyboardMarkup()
+            btn1 = types.InlineKeyboardButton(text="Изучить!", callback_data="btn1")  # dont work
+            keyboard.add(btn1)
+            bot.send_message(call.message.chat.id, for_mess, reply_markup=keyboard)
+            bot.answer_callback_query(call.id)
+
+        elif call.data == "btn1":  # кнопка для изучить, которая кидает гайд с text.py
+            bot.send_message(call.message.chat.id, bot_instruct)
+            bot.answer_callback_query(call.id)
+
+        elif call.data == "help":  # кнопка вызова подсказок
+            bot.send_message(call.message.chat.id, "/start - начинает работу бота,"
+                                                   "\n /back - возвращает к приветственному сообщению,"
+                                                   "\n /help - кидает подсказки"
+                                                   "\n Все подсказки есть в Menu в левом нижнем углу :)")
+            bot.answer_callback_query(call.id)
+
+        elif call.data == "back":
+            start(call.message)  # возвращает к стартовому сообщению
+
+        elif call.data == "bt4":
+            five_mess = "Кто вы из персонажей акыречной аушки под названием 'Лягушка и стрекоза'?"
+            keyboard = types.InlineKeyboardMarkup()
+            btn1 = types.InlineKeyboardButton(text="Сквизнуть🤸🏻", url="https://uquiz.com/j0Ek0E")
+            keyboard.add(btn1)
+            bot.send_message(call.message.chat.id, five_mess, reply_markup=keyboard)
+            bot.answer_callback_query(call.id)
 
 
 if __name__ == "__main__":
     print("Бот готов к работе! Leggo!")
     bot.infinity_polling()
-
-
-
-# @bot.message_handler(content_types=["text"])
-# def get_text_message(message):
-    # if message.text == "От всего сердца, КосмоПривет!🧑‍🚀🤟":
-        # btn4 = types.KeyboardButton("Скрасить ожидание на КосмоПалубе")  # игры
-        # markup.add(btn1, btn2, btn3, btn4)
-        # bot.send_message(message.from_user.id, "Что желаете осмотреть?🕵️", reply_markup=markup)
-
-    # elif message.text == "Отправится к истокам!":
-        # bot.send_message(message.from_user.id, ans_one, parse_mode="Markdown")
-
-
-
-
-
-
-
-
-
