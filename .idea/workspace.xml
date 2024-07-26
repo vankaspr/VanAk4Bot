@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6f80289-cc43-4054-a08c-b77a3f97fdbb" name="Changes" comment="fix: random mem+">
-      <change afterPath="$PROJECT_DIR$/text.py" afterDir="false" />
+    <list default="true" id="c6f80289-cc43-4054-a08c-b77a3f97fdbb" name="Changes" comment="update back, stop commands &#10;and add new button">
+      <change afterPath="$PROJECT_DIR$/database/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/requests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tg_bot_aiogram/aiogram_bot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +60,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\web\personal\VanAk4Bot\pythonProject" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\web\personal\VanAk4Bot\pythonProject\tg_bot_aiogram" />
     </key>
   </component>
   <component name="RunManager">
@@ -179,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721321631480</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update back, stop commands &#10;and add new button">
+      <option name="closed" value="true" />
+      <created>1721752565046</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1721752565046</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -205,6 +219,7 @@
     <MESSAGE value="fix: readme" />
     <MESSAGE value="fix: token" />
     <MESSAGE value="fix: random mem+" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: random mem+" />
+    <MESSAGE value="update back, stop commands &#10;and add new button" />
+    <option name="LAST_COMMIT_MESSAGE" value="update back, stop commands &#10;and add new button" />
   </component>
 </project>
